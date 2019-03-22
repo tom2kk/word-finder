@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <div class="jumbotron">
+        <h1 class="display-3">Get Niched!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a id="jumbotron-button" class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+        </p>
+    </div>
+    <div id="genMain">
+        <div id="genMainLeft">
+            <div id="genMainLeftBox">
+          
+            </div>
+        </div>
+        <div id="genMainRight">
+            <div id="genMainRightBox">
+          
+            </div>
+        </div>
+    </div>
+    <div id="listMainButton">
+        <button type="button" id="genButtonLeft" class="btn btn-danger">Next</button>
+        <button type="button" id="randomButton" class="btn btn-info btn-lg">Random</button>
+        <button type="button" id="listButton" class="btn btn-success btn-lg">Add to List</button>
+        <button type="button" id="copyButton" class="btn btn-info btn-lg">Copy List</button>
+        <button type="button" id="genButtonRight" class="btn btn-danger">Next</button>
+    </div>
+    <div id="listMain">
+        <textarea class="form-control" id="listMainBox" rows="3"></textarea>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var leftList = ["nuts","stiff","husband","date","brown","political","community","manner","silk","string","section","rise","read","beneath","who","about","observe","port","volume","look","cannot","wild","happy","statement","shells","would","during","gold","care","jar","member","toward","lost","break","forgot","largest","after","cap","else","earlier","town","fight","please","previous","hill","slave","whenever","pass","form","earlier","current","offer","combine","never","cut","black","straw","paragraph","die","shore","below","does","him","boat","far","worth","group","education","list","help","serious","evening","nature","harbor","twelve","glass","voice","peace","crop","step","powder","opinion","replace","station","knowledge","mighty","series","earlier","sudden","cloth","date","prize","gray","author","pet","tears","environment"];
+            var rightList = ["nuts","stiff","husband","date","brown","political","community","manner","silk","string","section","rise","read","beneath","who","about","observe","port","volume","look","cannot","wild","happy","statement","shells","would","during","gold","care","jar","member","toward","lost","break","forgot","largest","after","cap","else","earlier","town","fight","please","previous","hill","slave","whenever","pass","form","earlier","current","offer","combine","never","cut","black","straw","paragraph","die","shore","below","does","him","boat","far","worth","group","education","list","help","serious","evening","nature","harbor","twelve","glass","voice","peace","crop","step","powder","opinion","replace","station","knowledge","mighty","series","earlier","sudden","cloth","date","prize","gray","author","pet","tears","environment"];
+            var rand;
+            var rand2;
+
+            rand = leftList[Math.floor(Math.random() * leftList.length)];
+            document.getElementById("genMainLeftBox").innerHTML = rand;
+            rand2 = rightList[Math.floor(Math.random() * rightList.length)];
+            document.getElementById("genMainRightBox").innerHTML = rand2;
+            
+
+            $("#genMain").css({"width":"100%", "height":"400px"})
+            $("#genMain, #listMainButton").css("display", "none")
+            $("#listMain").css({"width":"100%", "height":"400px"})
+            $("#listMain").css("display", "none")
+
+            $("#jumbotron-button").click(function () {
+                $(".jumbotron").fadeOut(300, function() { $(".jumbotron").remove(); });
+                $("#genMain").delay( 400 ).fadeIn(300);
+                $("#listMain, #listMainButton").delay( 800 ).fadeIn(300);
+            });
+
+            $("#listButton").click(function () {
+                $("#listMainBox").animate({ backgroundColor: "#68BD68" }, "slow").animate({ backgroundColor: "#4E5D6C" }, "slow");
+                $("#genMainRightBox, #genMainLeftBox").animate({ backgroundColor: "#68BD68" }, "fast").hide( "drop", {direction: "down"}, 500 ).delay( 200 );
+                $("#genMainRightBox, #genMainLeftBox").animate({ backgroundColor: "#4E5D6C" }, "fast").fadeIn(800);
+                document.getElementById("listMainBox").innerHTML += document.getElementById("genMainLeftBox").innerHTML +' '+ document.getElementById("genMainRightBox").innerHTML + "\n";
+                
+
+            });
+
+            $("#randomButton").click(function () {
+                $("#genMainRightBox, #genMainLeftBox").animate({ backgroundColor: "#D9534F" }, "fast").hide( "drop", {direction: "up"}, 500 ).delay( 200 );
+                $("#genMainRightBox, #genMainLeftBox").animate({ backgroundColor: "#4E5D6C" }, "fast").fadeIn(800).delay( 200 );;
+                rand = leftList[Math.floor(Math.random() * leftList.length)];
+                setTimeout(function(){document.getElementById("genMainLeftBox").innerHTML = rand} , 1000);
+                rand2 = rightList[Math.floor(Math.random() * rightList.length)];
+                setTimeout(function(){document.getElementById("genMainRightBox").innerHTML = rand2} , 1000);
+            });
+
+
+            $("#genButtonLeft").click(function () {
+                $("#genMainLeftBox").animate({ backgroundColor: "#D9534F" }, "fast").hide( "drop", {direction: "up"}, 500 ).delay( 200 );
+                $("#genMainLeftBox").animate({ backgroundColor: "#4E5D6C" }, "fast").fadeIn(800).delay( 200 );;
+                rand = leftList[Math.floor(Math.random() * leftList.length)];
+                setTimeout(function(){document.getElementById("genMainLeftBox").innerHTML = rand} , 1000);
+            });
+
+            $("#genButtonRight").click(function () {
+                $("#genMainRightBox").animate({ backgroundColor: "#D9534F" }, "fast").hide( "drop", {direction: "up"}, 500 ).delay( 200 );
+                $("#genMainRightBox").animate({ backgroundColor: "#4E5D6C" }, "fast").fadeIn(800);
+                rand = leftList[Math.floor(Math.random() * leftList.length)];
+                setTimeout(function(){document.getElementById("genMainRightBox").innerHTML = rand} , 1000);
+            });
+
+            $("#copyButton").click(function copy() {
+              document.getElementById("listMainBox").select();
+              document.execCommand("copy");
+            });
+
+        });
+    </script>  
+  </body>
+</html>

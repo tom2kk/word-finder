@@ -1,0 +1,68 @@
+#genMain{
+    width:"100%";
+    height:"400px";
+    display: none;
+}
+#listMain{
+    width:"100%";
+    height:"400px";
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+#genMainLeft{
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#genMainRight{
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#genMainLeftBox{
+    height: 50%;
+    width: 50%;
+    background-color: #4E5D6C;
+    text-align: center;
+    line-height: 3.8;
+    font-size: 50px;
+}
+#genMainRightBox{
+    height: 50%;
+    width: 50%;
+    background-color: #4E5D6C;
+    text-align: center;
+    line-height: 3.8;
+    font-size: 50px;
+}
+#listMainBox{
+    min-height: 50%;
+    width: 50%;
+    background-color: #4E5D6C;
+    text-align: center;
+    font-size: 30px;
+    color: #EBEBEB;
+}
+#listMainButton{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#genButtonLeft{
+    margin-right: 4em;
+    width: 6em;
+}
+#genButtonRight{
+    margin-left: 4em;
+    width: 6em;
+}
